@@ -18,7 +18,7 @@ dotnet user-secrets set "OpenAI:ApiKey" "<shared key from IT>" --project src/Maf
 dotnet run --project src/MafShowcase -- step01
 ```
 
-Steps: `step01` first agent · `step02` run vs stream · `step03` function tools · `step04` multi-turn session.
+Steps: `step01` first agent · `step02` run vs stream · `step03` function tools · `step04` multi-turn session · `step05` interactive console chat (type `/new` to reset the conversation, `/exit` to quit).
 
 ## Tests (no network, no key needed)
 
