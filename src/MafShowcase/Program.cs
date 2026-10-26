@@ -3,7 +3,7 @@ using MafShowcase.Configuration;
 using MafShowcase.Steps;
 using Microsoft.Extensions.Configuration;
 
-// Usage: dotnet run --project src/MafShowcase -- step01   (step01 to step04)
+// Usage: dotnet run --project src/MafShowcase -- step01   (step01 to step05)
 
 IConfiguration configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
@@ -19,7 +19,8 @@ switch (args.FirstOrDefault()?.ToLowerInvariant())
     case "step02": await Step02_RunVsStream.RunAsync(factory); break;
     case "step03": await Step03_FunctionTools.RunAsync(factory); break;
     case "step04": await Step04_MultiTurnSession.RunAsync(factory); break;
+    case "step05": await Step05_ConsoleChat.RunAsync(factory); break;
     default:
-        Console.WriteLine("Choose a step: step01 | step02 | step03 | step04");
+        Console.WriteLine("Choose a step: step01 | step02 | step03 | step04 | step05");
         break;
 }
