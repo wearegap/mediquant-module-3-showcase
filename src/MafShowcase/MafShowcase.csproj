@@ -13,6 +13,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Agents.AI.OpenAI" Version="1.26.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.14" />
+    <!-- Session 2, Step 10 only (trainer demo). Brings the OpenTelemetry SDK with it. -->
+    <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.20.1" />
   </ItemGroup>
 
   <ItemGroup>

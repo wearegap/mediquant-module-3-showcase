@@ -20,6 +20,10 @@ dotnet run --project src/MafShowcase -- step01
 
 Steps: `step01` first agent · `step02` run vs stream · `step03` function tools · `step04` multi-turn session · `step05` interactive console chat (type `/new` to reset the conversation, `/exit` to quit).
 
+Session 2 steps (branch `session-2`): `step06` PHI pseudonymisation · `step07` input and output guards · `step08` tool guard · `step09` tool approval (interactive y/n) · `step10` OpenTelemetry traces to the console (trainer demo).
+
+**Session 2 status:** written 2026-10-26 against the Learn pages for agent middleware, tool approval, structured outputs and observability. **Not compiled or run yet.** Rehearsal checks: build, `dotnet test`, then run steps 06 to 10 with the key.
+
 ## Tests (no network, no key needed)
 
 Create the test project once, then add the two files already in `tests/MafShowcase.Tests/`:
@@ -42,3 +46,11 @@ Delete the template's `UnitTest1.cs` after `dotnet new`. `--force` keeps the exi
 | `Ward/WardQueries.cs` | Stand-in for MedTrack's existing query layer, fictional data |
 | `Steps/` | One file per concept, run from `Program.cs` |
 | `tests/.../ScriptedChatClient.cs` | Fake `IChatClient` so unit tests never call OpenAI |
+| `Agents/GuardedWardAssistantFactory.cs` | Session 2: the whole guardrail stack, composed in the order a request travels |
+| `Guardrails/PseudonymMap.cs`, `PseudonymisingChatClient.cs` | Chat client middleware: names and MRNs become placeholders on every model call and are restored on the way back |
+| `Guardrails/InputGuard.cs`, `OutputGuard.cs`, `RunGuardrails.cs` | Agent run middleware: a classifier with structured output before the run, deterministic checks after it |
+| `Guardrails/ToolGuard.cs`, `AdministrationValidator.cs` | Function middleware: argument checks on every tool call, after any approval |
+| `Tools/RecordingTools.cs`, `AdministrationDraft.cs` | The one write tool, wrapped in `ApprovalRequiredAIFunction`; the draft as a typed contract |
+| `Ward/AdministrationRecorder.cs` | Stand-in for MedTrack's existing recording handler, and `WardContext`: everything the server fixes |
+| `Guardrails/WireTapChatClient.cs` | Showcase only: prints what actually leaves the process |
+| `tests/.../GuardrailTests.cs` | Every guardrail proven with the scripted client, including "an approved but invalid draft is still blocked" |
