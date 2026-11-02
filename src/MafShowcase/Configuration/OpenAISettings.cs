@@ -5,9 +5,14 @@ namespace MafShowcase.Configuration;
 
 /// <summary>
 /// Everything the AI layer needs from configuration, read from one "OpenAI" section.
-/// The key comes from user-secrets; the model and reasoning effort come from appsettings.json.
+/// The key comes from user-secrets; the models and reasoning effort come from appsettings.json.
+/// Session 3 adds the embedding model: the same key serves chat and embeddings.
 /// </summary>
-public sealed record OpenAISettings(string ApiKey, string ChatModel, ReasoningEffort ReasoningEffort)
+public sealed record OpenAISettings(
+    string ApiKey,
+    string ChatModel,
+    ReasoningEffort ReasoningEffort,
+    string EmbeddingModel = "text-embedding-3-small")
 {
     public const string SectionName = "OpenAI";
 
@@ -29,10 +34,16 @@ public sealed record OpenAISettings(string ApiKey, string ChatModel, ReasoningEf
             throw new InvalidOperationException("OpenAI:ChatModel is not set in appsettings.json.");
         }
 
+        var embeddingModel = section["EmbeddingModel"];
+        if (string.IsNullOrWhiteSpace(embeddingModel))
+        {
+            throw new InvalidOperationException("OpenAI:EmbeddingModel is not set in appsettings.json.");
+        }
+
         var effort = Enum.TryParse<ReasoningEffort>(section["ReasoningEffort"], ignoreCase: true, out var parsed)
             ? parsed
             : ReasoningEffort.Low;
 
-        return new OpenAISettings(apiKey, chatModel, effort);
+        return new OpenAISettings(apiKey, chatModel, effort, embeddingModel);
     }
 }

@@ -22,4 +22,9 @@
     <ProjectReference Include="..\..\src\MafShowcase\MafShowcase.csproj" />
   </ItemGroup>
 
+  <!-- Session 3: the real protocol PDFs, copied next to the tests. -->
+  <ItemGroup>
+    <None Include="..\..\data\protocols\*.pdf" Link="protocols\%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

@@ -15,6 +15,13 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.14" />
     <!-- Session 6, Step 10 only (trainer demo). Brings the OpenTelemetry SDK with it. -->
     <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.20.1" />
+    <!-- Session 3: SQLite vector store (prerelease, with the native sqlite-vec extension) and PDF text extraction. -->
+    <PackageReference Include="CommunityToolkit.VectorData.SqliteVec" Version="1.0.3-preview" />
+    <PackageReference Include="PdfPig" Version="0.1.16" />
+    <!-- Session 3, Step 11 only (side-by-side chunker comparison). Preview. Not used by the lab. -->
+    <PackageReference Include="Microsoft.Extensions.DataIngestion" Version="10.11.0-preview.1.26513.7" />
+    <!-- The token counts for text-embedding-3-small (cl100k_base). Major version 1, as DataIngestion was built against it. -->
+    <PackageReference Include="Microsoft.ML.Tokenizers.Data.Cl100kBase" Version="1.0.3" />
   </ItemGroup>
 
   <ItemGroup>

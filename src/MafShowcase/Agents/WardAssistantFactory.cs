@@ -30,6 +30,15 @@ public sealed class WardAssistantFactory(OpenAISettings settings)
             .ConfigureOptions(options => options.Reasoning = new() { Effort = settings.ReasoningEffort })
             .Build();
 
+    /// <summary>Session 3: the embedding generator. Same key, a different model, built in the same one place.</summary>
+    public IEmbeddingGenerator<string, Embedding<float>> CreateEmbeddingGenerator() =>
+        new OpenAIClient(settings.ApiKey)
+            .GetEmbeddingClient(settings.EmbeddingModel)
+            .AsIEmbeddingGenerator();
+
+    /// <summary>The configured embedding model name, for code that must match it (for example a tokenizer).</summary>
+    public string EmbeddingModel => settings.EmbeddingModel;
+
     public AIAgent Create(IChatClient chatClient, WardTools? tools = null) =>
         new ChatClientAgent(chatClient, new ChatClientAgentOptions
         {

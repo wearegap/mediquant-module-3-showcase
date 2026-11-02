@@ -3,3 +3,7 @@ obj/
 *.user
 .vs/
 TestResults/
+
+# Session 3: the vector index is rebuilt on demand
+data/*.db
+data/*.db-*

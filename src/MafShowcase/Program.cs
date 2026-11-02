@@ -3,7 +3,7 @@ using MafShowcase.Configuration;
 using MafShowcase.Steps;
 using Microsoft.Extensions.Configuration;
 
-// Usage: dotnet run --project src/MafShowcase -- step01   (step01 to step10)
+// Usage: dotnet run --project src/MafShowcase -- step01   (step01 to step14)
 
 IConfiguration configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
@@ -26,7 +26,12 @@ switch (args.FirstOrDefault()?.ToLowerInvariant())
     case "step08": await Step08_ToolGuard.RunAsync(factory); break;
     case "step09": await Step09_ToolApproval.RunAsync(factory); break;
     case "step10": await Step10_Observability.RunAsync(factory); break;
+    // Session 3: RAG (run from the repository root; step11 builds the index the later steps use)
+    case "step11": await Step11_Ingest.RunAsync(factory); break;
+    case "step12": await Step12_Search.RunAsync(factory); break;
+    case "step13": await Step13_ManualRag.RunAsync(factory); break;
+    case "step14": await Step14_TextSearchProvider.RunAsync(factory); break;
     default:
-        Console.WriteLine("Choose a step: step01 to step05 (Session 5), step06 to step10 (Session 6)");
+        Console.WriteLine("Choose a step: step01 to step05 (Session 1), step06 to step10 (Session 2), step11 to step14 (Session 3)");
         break;
 }
