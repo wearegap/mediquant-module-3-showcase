@@ -3,7 +3,7 @@ using MafShowcase.Configuration;
 using MafShowcase.Steps;
 using Microsoft.Extensions.Configuration;
 
-// Usage: dotnet run --project src/MafShowcase -- step01   (step01 to step14)
+// Usage: dotnet run --project src/MafShowcase -- step01   (step01 to step19)
 
 IConfiguration configuration = new ConfigurationBuilder()
     .SetBasePath(AppContext.BaseDirectory)
@@ -31,7 +31,14 @@ switch (args.FirstOrDefault()?.ToLowerInvariant())
     case "step12": await Step12_Search.RunAsync(factory); break;
     case "step13": await Step13_ManualRag.RunAsync(factory); break;
     case "step14": await Step14_TextSearchProvider.RunAsync(factory); break;
+    // Session 4: workflows (step17 and step18 use the protocol index from step11)
+    case "step15": await Step15_ExecutorsAndEdges.RunAsync(); break;
+    case "step16": await Step16_FanOutFanIn.RunAsync(); break;
+    case "step17": await Step17_AgentsAndSignOff.RunAsync(factory); break;
+    case "step17b": await Step17_AgentsAndSignOff.RunAsWebApiAsync(factory); break;
+    case "step18": await Step18_Checkpoints.RunAsync(factory); break;
+    case "step19": await Step19_Orchestrations.RunAsync(factory); break;
     default:
-        Console.WriteLine("Choose a step: step01 to step05 (Session 5), step06 to step10 (Session 6), step11 to step14 (Session 7)");
+        Console.WriteLine("Choose a step: step01 to step05 (Session 1), step06 to step10 (Session 2), step11 to step14 (Session 3), step15 to step19 (Session 4)");
         break;
 }
