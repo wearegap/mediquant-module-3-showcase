@@ -6,7 +6,7 @@ using Microsoft.Agents.AI.Workflows;
 namespace MafShowcase.Tests;
 
 /// <summary>
-/// Session 4. The graph is code, so it is tested like code: the deterministic workflows directly,
+/// Session 8. The graph is code, so it is tested like code: the deterministic workflows directly,
 /// and feature 0008 with the scripted chat client standing in for both agent steps.
 /// </summary>
 public sealed class WorkflowTests : IDisposable

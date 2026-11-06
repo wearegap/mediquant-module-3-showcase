@@ -22,7 +22,7 @@
     <PackageReference Include="Microsoft.Extensions.DataIngestion" Version="10.11.0-preview.1.26513.7" />
     <!-- The token counts for text-embedding-3-small (cl100k_base). Major version 1, as DataIngestion was built against it. -->
     <PackageReference Include="Microsoft.ML.Tokenizers.Data.Cl100kBase" Version="1.0.3" />
-    <!-- Session 4: workflows. Stable, but not pulled in by Microsoft.Agents.AI.OpenAI: same version as the agent packages. -->
+    <!-- Session 8: workflows. Stable, but not pulled in by Microsoft.Agents.AI.OpenAI: same version as the agent packages. -->
     <PackageReference Include="Microsoft.Agents.AI.Workflows" Version="1.26.0" />
   </ItemGroup>
 

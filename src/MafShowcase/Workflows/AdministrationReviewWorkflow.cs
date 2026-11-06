@@ -50,7 +50,7 @@ public sealed class DrafterExecutor(IChatClient chatClient, WardContext ward) : 
 }
 
 /// <summary>
-/// Agent step 2. Runs in parallel with the order check. Uses the Session 3 search tool (filtered to this ward)
+/// Agent step 2. Runs in parallel with the order check. Uses the Session 7 search tool (filtered to this ward)
 /// and returns the protocol steps that apply, with citations. Information for the nurse, so it never blocks.
 /// </summary>
 public sealed class ProtocolCheckExecutor(IChatClient chatClient, ProtocolIndex index, WardContext ward)
@@ -91,7 +91,7 @@ public sealed class NotOfferedExecutor() : Executor<ReviewCard>("NotOffered")
 }
 
 /// <summary>
-/// After the nurse answers. Reads the draft from shared state, checks it again (Session 2: check after approval),
+/// After the nurse answers. Reads the draft from shared state, checks it again (Session 6: check after approval),
 /// and writes through the existing handler. Nothing is recorded on a rejection.
 /// </summary>
 [YieldsOutput(typeof(string))]

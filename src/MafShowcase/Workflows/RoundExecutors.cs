@@ -36,7 +36,7 @@ public sealed class FindDueOrderExecutor(WardContext ward) : Executor<PatientSum
     }
 }
 
-/// <summary>The Session 2 validator as a workflow step: the draft must match the real order.</summary>
+/// <summary>The Session 6 validator as a workflow step: the draft must match the real order.</summary>
 public sealed class OrderCheckExecutor(WardContext ward) : Executor<AdministrationDraft, CheckResult>("OrderCheck")
 {
     public override ValueTask<CheckResult> HandleAsync(AdministrationDraft draft, IWorkflowContext context, CancellationToken cancellationToken = default)
