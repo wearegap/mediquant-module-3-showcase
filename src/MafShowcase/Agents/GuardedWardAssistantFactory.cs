@@ -7,7 +7,7 @@ using Microsoft.Extensions.AI;
 namespace MafShowcase.Agents;
 
 /// <summary>
-/// Session 2: the ward assistant with every guardrail in place. Read it top to bottom as the order
+/// Session 6: the ward assistant with every guardrail in place. Read it top to bottom as the order
 /// a request travels through:
 ///
 ///   run middleware      input guard (classifier, structured output) ... output guard

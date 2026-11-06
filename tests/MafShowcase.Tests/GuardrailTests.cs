@@ -8,7 +8,7 @@ using Xunit;
 namespace MafShowcase.Tests;
 
 /// <summary>
-/// Session 2. Every guardrail is deterministic code, so every one of them is tested without a model.
+/// Session 6. Every guardrail is deterministic code, so every one of them is tested without a model.
 /// The scripted client plays BOTH model calls: the input guard's classifier first, then the agent.
 /// </summary>
 public class GuardrailTests

@@ -73,7 +73,6 @@ public sealed class PseudonymisingChatClient(IChatClient innerClient, PseudonymM
         FunctionResultContent result => new FunctionResultContent(result.CallId, map.Pseudonymise(Serialize(result.Result))),
 
         // Other content (reasoning items, approval bookkeeping) passes through unchanged.
-        // Rehearsal check: confirm no other content type carries patient data to the provider.
         _ => content,
     };
 

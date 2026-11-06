@@ -20,13 +20,13 @@ switch (args.FirstOrDefault()?.ToLowerInvariant())
     case "step03": await Step03_FunctionTools.RunAsync(factory); break;
     case "step04": await Step04_MultiTurnSession.RunAsync(factory); break;
     case "step05": await Step05_ConsoleChat.RunAsync(factory); break;
-    // Session 2: guardrails
+    // Session 6: guardrails
     case "step06": await Step06_PhiRedaction.RunAsync(factory); break;
     case "step07": await Step07_InputOutputGuards.RunAsync(factory); break;
     case "step08": await Step08_ToolGuard.RunAsync(factory); break;
     case "step09": await Step09_ToolApproval.RunAsync(factory); break;
     case "step10": await Step10_Observability.RunAsync(factory); break;
     default:
-        Console.WriteLine("Choose a step: step01 to step05 (Session 1), step06 to step10 (Session 2)");
+        Console.WriteLine("Choose a step: step01 to step05 (Session 5), step06 to step10 (Session 6)");
         break;
 }

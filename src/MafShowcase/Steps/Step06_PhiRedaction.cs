@@ -18,7 +18,7 @@ public static class Step06_PhiRedaction
         var tools = new WardTools(ward.Queries, ward.Time, ward.WardCode);
         IChatClient wire = new WireTapChatClient(factory.CreateChatClient());
 
-        Console.WriteLine("--- Session 1 assistant: real names and MRNs go to the provider ---");
+        Console.WriteLine("--- Session 5 assistant: real names and MRNs go to the provider ---");
         AIAgent plain = factory.Create(wire, tools);
         Console.WriteLine((await plain.RunAsync(Question)).Text);
         Console.WriteLine();
