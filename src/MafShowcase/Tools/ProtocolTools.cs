@@ -10,7 +10,7 @@ public sealed record ProtocolSearchResult(bool Found, string Note, IReadOnlyList
 public sealed record ProtocolCitation(string Cite, string Title, string Text, double Similarity);
 
 /// <summary>
-/// Retrieval as an ordinary tool, the same pattern as the Session 1 tools: the model decides when a question
+/// Retrieval as an ordinary tool, the same pattern as the Session 5 tools: the model decides when a question
 /// needs the protocols, our code decides what comes back. Read-only, like every search.
 /// The ward filter comes from the server (the conversation's ward), never from a tool argument.
 /// </summary>

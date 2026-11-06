@@ -31,7 +31,7 @@ public static class GuardedWardAssistantFactory
         returned them. Nothing is recorded until the nurse approves the draft.
         """;
 
-    /// <summary>Session 3: added only when the protocol index is available.</summary>
+    /// <summary>Session 7: added only when the protocol index is available.</summary>
     public const string ProtocolInstructions = """
         For any question about how a medicine is given, checked, monitored or recorded on this ward,
         or about a ward policy or protocol, call search_ward_protocols first.
@@ -43,7 +43,7 @@ public static class GuardedWardAssistantFactory
         """;
 
     /// <param name="chatClient">The plain chat client from WardAssistantFactory.CreateChatClient(), or a fake in tests.</param>
-    /// <param name="protocols">Session 3: the ward protocol index. Without it the assistant has no protocol tool.</param>
+    /// <param name="protocols">Session 7: the ward protocol index. Without it the assistant has no protocol tool.</param>
     public static AIAgent Create(IChatClient chatClient, WardContext ward, ProtocolIndex? protocols = null)
     {
         IReadOnlyList<PatientSummary> patients = ward.Queries.ListPatients(ward.WardCode);
@@ -70,7 +70,7 @@ public static class GuardedWardAssistantFactory
         List<AITool> tools = [.. wardTools.AsAITools(), .. recordingTools.AsAITools()];
         string instructions = Instructions;
 
-        // Session 3: retrieval is one more read-only tool, behind the same guards and the same redaction.
+        // Session 7: retrieval is one more read-only tool, behind the same guards and the same redaction.
         if (protocols is not null)
         {
             tools.AddRange(new ProtocolTools(protocols, ward.WardCode).AsAITools());

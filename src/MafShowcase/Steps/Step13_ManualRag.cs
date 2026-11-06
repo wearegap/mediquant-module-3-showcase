@@ -6,7 +6,7 @@ using Microsoft.Extensions.AI;
 
 namespace MafShowcase.Steps;
 
-// Step 13: RAG by hand. Our own search tool, our own citation format, inside the guarded assistant from Session 2.
+// Step 13: RAG by hand. Our own search tool, our own citation format, inside the guarded assistant from Session 6.
 public static class Step13_ManualRag
 {
     private static readonly string[] Questions =

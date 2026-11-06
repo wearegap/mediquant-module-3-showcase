@@ -4,6 +4,6 @@ obj/
 .vs/
 TestResults/
 
-# Session 3: the vector index is rebuilt on demand
+# Session 7: the vector index is rebuilt on demand
 data/*.db
 data/*.db-*

@@ -118,7 +118,6 @@ public sealed class ProtocolIndex(
         }
 
         // The filter runs in the database (SQLite supports equality filters only).
-        // Rehearsal check: a filtered search should still return up to 'top' hits from the chosen ward.
         var options = new VectorSearchOptions<ProtocolChunk>();
         if (ward is not null)
         {

@@ -9,7 +9,7 @@ using Xunit;
 namespace MafShowcase.Tests;
 
 /// <summary>
-/// Session 3. Ingestion and retrieval are deterministic code, so they are tested against the real PDFs
+/// Session 7. Ingestion and retrieval are deterministic code, so they are tested against the real PDFs
 /// with a fake embedding model and a temporary SQLite file. The chat model is the scripted client, as always.
 /// </summary>
 public sealed class RagTests : IDisposable

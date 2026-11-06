@@ -6,7 +6,7 @@ namespace MafShowcase.Configuration;
 /// <summary>
 /// Everything the AI layer needs from configuration, read from one "OpenAI" section.
 /// The key comes from user-secrets; the models and reasoning effort come from appsettings.json.
-/// Session 3 adds the embedding model: the same key serves chat and embeddings.
+/// Session 7 adds the embedding model: the same key serves chat and embeddings.
 /// </summary>
 public sealed record OpenAISettings(
     string ApiKey,
