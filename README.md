@@ -1,14 +1,14 @@
 # MAF Showcase (Module 3, trainer repository)
 
 Minimal console code that shows each Module 3 concept in isolation. One branch per session, cumulative:
-`session-1` (this content), `session-2`, `session-3`, `session-4`.
+`session-5` (this content), `session-6`, `session-7`, `session-8`.
 
 Fictional data only. No real patient data, ever.
 
 ## Status of this code
 
 Written against the Microsoft Agent Framework docs and samples as of 2026-10-21.
-**Not yet compiled or run.** It must be built, run with the shared key and tested at rehearsal before Session 1.
+Module 3 sessions are numbered 5 to 8, after Module 2's sessions 1 to 4.
 
 ## Setup (PowerShell or Git Bash)
 
